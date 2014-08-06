@@ -65,6 +65,7 @@ libc_common_src_files := \
     stdio/stdio_ext.cpp \
     stdlib/atexit.c \
     stdlib/exit.c \
+    string/bcopy.c
 
 # Fortify implementations of libc functions.
 libc_common_src_files += \
