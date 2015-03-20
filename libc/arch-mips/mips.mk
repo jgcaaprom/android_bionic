@@ -14,6 +14,7 @@ libc_bionic_src_files_mips += \
     bionic/__strcpy_chk.cpp \
     bionic/__strcat_chk.cpp \
     bionic/strchr.cpp \
+    bionic/strncat.c \
     bionic/strnlen.c \
     bionic/strrchr.cpp \
 
@@ -47,9 +48,12 @@ libc_openbsd_src_files_mips += \
     upstream-openbsd/lib/libc/string/strcpy.c \
     upstream-openbsd/lib/libc/string/strlcat.c \
     upstream-openbsd/lib/libc/string/strlcpy.c \
+<<<<<<< HEAD
     upstream-openbsd/lib/libc/string/strncat.c \
     upstream-openbsd/lib/libc/string/bcopy.c \
     upstream-openbsd/lib/libc/string/strcmp.c \
+=======
+>>>>>>> a3ab843... Reimplement the generic version of strncat
     upstream-openbsd/lib/libc/string/strncmp.c \
 
 #
