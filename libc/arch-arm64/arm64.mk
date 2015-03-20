@@ -10,6 +10,7 @@ libc_bionic_src_files_arm64 += \
     bionic/__strcat_chk.cpp \
     bionic/memrchr.c \
     bionic/strncat.c \
+    bionic/strcat.c \
     bionic/strrchr.cpp \
 
 libc_freebsd_src_files_arm64 += \
@@ -23,7 +24,6 @@ libc_freebsd_src_files_arm64 += \
 
 libc_openbsd_src_files_arm64 += \
     upstream-openbsd/lib/libc/string/stpncpy.c \
-    upstream-openbsd/lib/libc/string/strcat.c \
     upstream-openbsd/lib/libc/string/strlcat.c \
     upstream-openbsd/lib/libc/string/strlcpy.c \
     upstream-openbsd/lib/libc/string/strncpy.c \
