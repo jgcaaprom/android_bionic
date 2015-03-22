@@ -416,6 +416,10 @@ LOCAL_C_INCLUDES_mips64 := $(libm_ld_includes)
 LOCAL_SRC_FILES_mips64 := mips/fenv.c $(libm_ld128_src_files)
 LOCAL_SRC_FILES_mips64 += $(libm_mips_arch_files)
 
+ifeq ($(USE_CLANG_QCOM),true)
+LOCAL_CLANG := true
+endif
+
 include $(BUILD_STATIC_LIBRARY)
 
 #
@@ -433,5 +437,10 @@ LOCAL_WHOLE_STATIC_LIBRARIES := libm
 LOCAL_LDFLAGS_arm64 := -Wl,--exclude-libs,libgcc.a
 LOCAL_LDFLAGS_mips64 := -Wl,--exclude-libs,libgcc.a
 LOCAL_LDFLAGS_x86_64 := -Wl,--exclude-libs,libgcc.a
+
+ifeq ($(USE_CLANG_QCOM),true)
+LOCAL_CLANG := true
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 endif

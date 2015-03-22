@@ -34,5 +34,8 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 # LOCAL_ALLOW_UNDEFINED_SYMBOLS to remove --no-undefined from the linker flags.
 LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
 LOCAL_SYSTEM_SHARED_LIBRARIES :=
+ifeq ($(USE_CLANG_QCOM),true)
+LOCAL_CLANG := true
+endif
 
 include $(BUILD_SHARED_LIBRARY)
