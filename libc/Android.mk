@@ -516,12 +516,16 @@ ifeq ($(use_clang),)
   use_clang := false
 endif
 
+ifeq ($(USE_CLANG_QCOM),true)
+use_clang := true
+endif
+
 # Try to catch typical 32-bit assumptions that break with 64-bit pointers.
 libc_common_cflags += \
     -Werror=pointer-to-int-cast \
     -Werror=int-to-pointer-cast \
     -Werror=type-limits \
-    -Werror \
+    #-Werror \
 
 ifeq ($(strip $(DEBUG_BIONIC_LIBC)),true)
   libc_common_cflags += -DDEBUG
@@ -1128,8 +1132,12 @@ LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
 # Don't install on release build
 LOCAL_MODULE_TAGS := eng
 
+ifeq ($(USE_CLANG_QCOM),true)
+LOCAL_CLANG := false
+endif
+
 $(eval $(call patch-up-arch-specific-flags,LOCAL_CFLAGS,libc_common_cflags))
-include $(BUILD_SHARED_LIBRARY)
+#include $(BUILD_SHARED_LIBRARY)
 
 
 # ========================================================
@@ -1160,6 +1168,10 @@ LOCAL_SYSTEM_SHARED_LIBRARIES :=
 # Don't install on release build
 LOCAL_MODULE_TAGS := eng
 
+ifeq ($(USE_CLANG_QCOM),true)
+LOCAL_CLANG := false
+endif
+
 $(eval $(call patch-up-arch-specific-flags,LOCAL_CFLAGS,libc_common_cflags))
 include $(BUILD_SHARED_LIBRARY)
 
@@ -1183,6 +1195,11 @@ LOCAL_SRC_FILES := $(libstdcxx_common_src_files)
 LOCAL_MODULE:= libstdc++
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 LOCAL_SYSTEM_SHARED_LIBRARIES := libc
+
+ifeq ($(USE_CLANG_QCOM)),true)
+LOCAL_CLANG := true
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 
 # ========================================================
@@ -1196,6 +1213,11 @@ LOCAL_SRC_FILES := $(libstdcxx_common_src_files)
 LOCAL_MODULE:= libstdc++
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 LOCAL_SYSTEM_SHARED_LIBRARIES := libc
+
+ifeq ($(USE_CLANG_QCOM)),true)
+LOCAL_CLANG := true
+endif
+
 include $(BUILD_STATIC_LIBRARY)
 
 
