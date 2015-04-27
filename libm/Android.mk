@@ -117,8 +117,6 @@ libm_common_src_files += \
     upstream-freebsd/lib/msun/src/s_exp2f.c \
     upstream-freebsd/lib/msun/src/s_expm1.c \
     upstream-freebsd/lib/msun/src/s_expm1f.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_fdim.c \
     upstream-freebsd/lib/msun/src/s_finite.c \
     upstream-freebsd/lib/msun/src/s_finitef.c \
@@ -398,6 +396,13 @@ LOCAL_ASFLAGS := \
     -Ibionic/libc \
 
 # arch-specific settings
+LOCAL_C_INCLUDES_arm := $(LOCAL_PATH)/arm
+LOCAL_SRC_FILES_arm := \
+    arm/fenv.c \
+    arm/fabs.S \
+    arm/fabsf.S
+
+# arch-specific settings
 LOCAL_CFLAGS_arm := $(libm_arm_arch_cflags)
 LOCAL_C_INCLUDES_arm := $(LOCAL_PATH)/arm $(libm_arm_arch_includes)
 LOCAL_SRC_FILES_arm := arm/fenv.c $(libm_arm_arch_files)
@@ -417,6 +422,49 @@ LOCAL_SRC_FILES_mips += mips/fenv.c $(libm_mips_arch_files)
 LOCAL_C_INCLUDES_mips64 := $(libm_ld_includes)
 LOCAL_SRC_FILES_mips64 := mips/fenv.c $(libm_ld128_src_files)
 LOCAL_SRC_FILES_mips64 += $(libm_mips_arch_files)
+
+LOCAL_SRC_FILES_arm64 := \
+    arm64/fenv.c $(libm_ld128_src_files) \
+    arm64/fabs.S \
+    upstream-freebsd/lib/msun/src/e_sqrt.c \
+    upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c
+
+LOCAL_C_INCLUDES_x86 := $(LOCAL_PATH)/i387
+LOCAL_SRC_FILES_x86 := \
+    i387/fenv.c \
+    upstream-freebsd/lib/msun/src/e_sqrt.c \
+    upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c
+
+LOCAL_C_INCLUDES_x86_64 := $(libm_ld_includes)
+LOCAL_SRC_FILES_x86_64 := \
+    amd64/fenv.c $(libm_ld128_src_files) \
+    upstream-freebsd/lib/msun/src/e_sqrt.c \
+    upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c
+
+LOCAL_SRC_FILES_mips := \
+    mips/fenv.c \
+    upstream-freebsd/lib/msun/src/e_sqrt.c \
+    upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c
+
+LOCAL_C_INCLUDES_mips64 := $(libm_ld_includes)
+LOCAL_SRC_FILES_mips64 := \
+    mips/fenv.c $(libm_ld128_src_files) \
+    upstream-freebsd/lib/msun/src/e_sqrt.c \
+    upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c \
+
 
 include $(BUILD_STATIC_LIBRARY)
 
