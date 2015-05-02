@@ -6,7 +6,6 @@
 
 libc_bionic_src_files_arm += \
     bionic/strnlen.c \
-    bionic/strrchr.cpp \
 
 libc_freebsd_src_files_arm += \
     upstream-freebsd/lib/libc/string/wcscat.c \
@@ -41,6 +40,7 @@ libc_bionic_src_files_arm += \
     arch-arm/bionic/setjmp.S \
     arch-arm/bionic/syscall.S \
     arch-arm/bionic/strchr.S \
+    arch-arm/bionic/strrchr.S \
 
 libc_arch_static_src_files_arm := arch-arm/bionic/exidx_static.c
 libc_arch_dynamic_src_files_arm := arch-arm/bionic/exidx_dynamic.c
