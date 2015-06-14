@@ -17,7 +17,3 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(call all-subdir-makefiles)
-
-LOCAL_CC  := $$(TARGET_TOOLCHAIN_ROOT)/../arm-linux-androideabi-5.1/bin/arm-linux-androideabi-gcc$$(HOST_EXECUTABLE_SUFFIX)
-LOCAL_CXX := $$(TARGET_TOOLCHAIN_ROOT)/../arm-linux-androideabi-5.1/bin/arm-linux-androideabi-g++$$(HOST_EXECUTABLE_SUFFIX)
-  
