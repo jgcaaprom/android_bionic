@@ -9,6 +9,14 @@ libc_bionic_src_files_arm64 += \
     bionic/__strcpy_chk.cpp \
     bionic/__strcat_chk.cpp \
 
+libc_darwin_src_files_arm64 += \
+    upstream-darwin/lib/libc/string/stpncpy.c \
+    upstream-darwin/lib/libc/string/strcat.c \
+    upstream-darwin/lib/libc/string/strlcat.c \
+    upstream-darwin/lib/libc/string/strlcpy.c \
+    upstream-darwin/lib/libc/string/strncat.c \
+    upstream-darwin/lib/libc/string/strncpy.c \
+
 libc_freebsd_src_files_arm64 += \
     upstream-freebsd/lib/libc/string/wcscat.c \
     upstream-freebsd/lib/libc/string/wcschr.c \
@@ -19,6 +27,7 @@ libc_freebsd_src_files_arm64 += \
     upstream-freebsd/lib/libc/string/wmemcmp.c \
 
 libc_openbsd_src_files_arm64 += \
+<<<<<<< HEAD
     upstream-openbsd/lib/libc/string/memrchr.c \
     upstream-openbsd/lib/libc/string/stpncpy.c \
     upstream-openbsd/lib/libc/string/strcat.c \
@@ -26,6 +35,8 @@ libc_openbsd_src_files_arm64 += \
     upstream-openbsd/lib/libc/string/strlcpy.c \
     upstream-openbsd/lib/libc/string/strncat.c \
     upstream-openbsd/lib/libc/string/strncpy.c \
+=======
+>>>>>>> 120a682... libc: Import optimized string routines from Apple
 
 #
 # Inherently architecture-specific code.

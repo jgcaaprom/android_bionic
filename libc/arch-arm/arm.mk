@@ -7,6 +7,13 @@
 libc_bionic_src_files_arm += \
     bionic/strnlen.c \
 
+libc_darwin_src_files_arm += \
+    upstream-darwin/lib/libc/string/stpncpy.c \
+    upstream-darwin/lib/libc/string/strlcat.c \
+    upstream-darwin/lib/libc/string/strlcpy.c \
+    upstream-darwin/lib/libc/string/strncat.c \
+    upstream-darwin/lib/libc/string/strncpy.c \
+
 libc_freebsd_src_files_arm += \
     upstream-freebsd/lib/libc/string/wcscat.c \
     upstream-freebsd/lib/libc/string/wcschr.c \
@@ -19,12 +26,7 @@ libc_freebsd_src_files_arm += \
 
 libc_openbsd_src_files_arm += \
     upstream-openbsd/lib/libc/string/memrchr.c \
-    upstream-openbsd/lib/libc/string/stpncpy.c \
-    upstream-openbsd/lib/libc/string/strlcat.c \
-    upstream-openbsd/lib/libc/string/strlcpy.c \
-    upstream-openbsd/lib/libc/string/strncat.c \
     upstream-openbsd/lib/libc/string/strncmp.c \
-    upstream-openbsd/lib/libc/string/strncpy.c \
 
 #
 # Inherently architecture-specific code.
@@ -49,6 +51,17 @@ libc_arch_dynamic_src_files_arm := arch-arm/bionic/exidx_dynamic.c
 ifeq ($(strip $(TARGET_$(my_2nd_arch_prefix)CPU_VARIANT)),)
   $(warning TARGET_$(my_2nd_arch_prefix)ARCH is arm, but TARGET_$(my_2nd_arch_prefix)CPU_VARIANT is not defined)
 endif
+
+ifeq ($(filter cortex-a9 cortex-a53 denver krait scorpion, $(strip $(TARGET_$(my_2nd_arch_prefix)CPU_VARIANT))),)
+libc_bionic_src_files_arm += \
+    upstream-darwin/lib/libc/string/stpcpy.c
+endif
+
+ifeq ($(filter cortex-a53 krait scorpion, $(strip $(TARGET_$(my_2nd_arch_prefix)CPU_VARIANT))),)
+libc_bionic_src_files_arm += \
+    upstream-openbsd/lib/libc/string/bcopy.c
+endif
+
 cpu_variant_mk := $(LOCAL_PATH)/arch-arm/$(TARGET_$(my_2nd_arch_prefix)CPU_VARIANT)/$(TARGET_$(my_2nd_arch_prefix)CPU_VARIANT).mk
 ifeq ($(wildcard $(cpu_variant_mk)),)
 $(error "TARGET_$(my_2nd_arch_prefix)CPU_VARIANT not set or set to an unknown value. Possible values are cortex-a7, cortex-a8, cortex-a9, cortex-a15, krait, scorpion, denver. Use generic for devices that do not have a CPU similar to any of the supported cpu variants.")
