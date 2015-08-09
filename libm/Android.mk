@@ -305,19 +305,17 @@ libm_arm_arch_cflags += -DQCOM_NEON_OPTIMIZATION -fno-if-conversion
 LOCAL_SRC_FILES_arm += \
     arm/atan.S \
     arm/cos.S \
-    arm/cos_kernel.S \
     arm/exp.S \
     arm/fabs.S \
     arm/floor.S \
     arm/fma.S \
     arm/log.S \
-    arm/rem_pio2_fast.S \
+    arm/lrint.S \
     arm/rem_pio2.S \
     arm/rem_pio2_kernel.S \
-    arm/rem_pio2_large.c \
     arm/sin.S \
-    arm/sin_kernel.S \
-    arm/sqrt.S 
+    arm/sqrt.S \
+
 endif
 
 LOCAL_CFLAGS_arm += -fno-if-conversion
