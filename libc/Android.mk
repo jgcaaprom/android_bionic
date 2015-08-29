@@ -1085,6 +1085,7 @@ include $(BUILD_SHARED_LIBRARY)
 # the checks are available only in emulator and are implemeted in
 # libc_malloc_qemu_instrumented.so.
 ifneq ($(TARGET_BUILD_VARIANT),user)
+ifneq ($(TARGET_BUILD_VARIANT),userdebug)
 
 # ========================================================
 # libc_malloc_debug_leak.so
@@ -1158,6 +1159,7 @@ LOCAL_MODULE_TAGS := eng debug
 $(eval $(call patch-up-arch-specific-flags,LOCAL_CFLAGS,libc_common_cflags))
 include $(BUILD_SHARED_LIBRARY)
 
+endif  #!userdebug
 endif  #!user
 
 # ========================================================
