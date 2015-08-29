@@ -49,6 +49,10 @@
 	.syntax unified
 	.arch	armv7-a
 
+<<<<<<< HEAD
+=======
+	.text
+>>>>>>> 9e25aa8... bionic: libc: arm: Optimized strchr, courtesy NetBSD.
 	.thumb
 	.thumb_func
 
