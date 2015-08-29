@@ -49,7 +49,6 @@
 	.syntax unified
 	.arch	armv7-a
 
-	.text
 	.thumb
 	.thumb_func
 
