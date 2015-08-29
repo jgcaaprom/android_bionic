@@ -7,6 +7,7 @@ extern char __aeabi_cdcmple;
 extern char __aeabi_cdrcmple;
 extern char __aeabi_d2f;
 extern char __aeabi_d2iz;
+extern char __aeabi_d2uiz;
 extern char __aeabi_dadd;
 extern char __aeabi_dcmpeq;
 extern char __aeabi_dcmpge;
@@ -22,6 +23,7 @@ extern char __aeabi_f2d;
 extern char __aeabi_f2iz;
 extern char __aeabi_f2uiz;
 extern char __aeabi_fadd;
+extern char __aeabi_fcmpgt;
 extern char __aeabi_fcmpun;
 extern char __aeabi_fdiv;
 extern char __aeabi_fmul;
@@ -86,6 +88,7 @@ void* __bionic_libgcc_compat_symbols[] = {
     &__aeabi_cdrcmple,
     &__aeabi_d2f,
     &__aeabi_d2iz,
+    &__aeabi_d2uiz,
     &__aeabi_dadd,
     &__aeabi_dcmpeq,
     &__aeabi_dcmpge,
@@ -101,6 +104,7 @@ void* __bionic_libgcc_compat_symbols[] = {
     &__aeabi_f2iz,
     &__aeabi_f2uiz,
     &__aeabi_fadd,
+    &__aeabi_fcmpgt,
     &__aeabi_fcmpun,
     &__aeabi_fdiv,
     &__aeabi_fmul,
