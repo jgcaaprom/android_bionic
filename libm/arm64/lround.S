@@ -16,16 +16,20 @@
 
 #include <private/bionic_asm.h>
 
-ENTRY(fabsf)
-   vmov    s15, r0
-   vabs.f32        s0, s15
-   vmov    r0, s0
-   bx      lr
-END(fabsf)
+ENTRY(lround)
+  fcvtas x0, d0
+  ret
+END(lround)
 
-ENTRY(fabs)
-   vmov    d16, r0, r1
-   vabs.f64        d0, d16
-   vmov    r0, r1, d0
-   bx      lr
-END(fabs)
+ENTRY(lroundf)
+  frintX s0, s0
+  fcvtas x0, s0
+  ret
+END(lroundf)
+
+// sizeof(long) and sizeof(long long) are the same for aarch64
+.weak llround
+.equ llround,lround
+
+.weak llroundf
+.equ llroundf,lroundf
