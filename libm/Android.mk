@@ -60,7 +60,6 @@ libm_common_src_files += \
     upstream-freebsd/lib/msun/src/e_powf.c \
     upstream-freebsd/lib/msun/src/e_remainder.c \
     upstream-freebsd/lib/msun/src/e_remainderf.c \
-    upstream-freebsd/lib/msun/src/e_rem_pio2.c \
     upstream-freebsd/lib/msun/src/e_rem_pio2f.c \
     upstream-freebsd/lib/msun/src/e_scalb.c \
     upstream-freebsd/lib/msun/src/e_scalbf.c \
@@ -71,7 +70,6 @@ libm_common_src_files += \
     upstream-freebsd/lib/msun/src/k_cosf.c \
     upstream-freebsd/lib/msun/src/k_exp.c \
     upstream-freebsd/lib/msun/src/k_expf.c \
-    upstream-freebsd/lib/msun/src/k_rem_pio2.c \
     upstream-freebsd/lib/msun/src/k_sin.c \
     upstream-freebsd/lib/msun/src/k_sinf.c \
     upstream-freebsd/lib/msun/src/k_tan.c \
@@ -117,27 +115,17 @@ libm_common_src_files += \
     upstream-freebsd/lib/msun/src/s_exp2f.c \
     upstream-freebsd/lib/msun/src/s_expm1.c \
     upstream-freebsd/lib/msun/src/s_expm1f.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_fdim.c \
     upstream-freebsd/lib/msun/src/s_finite.c \
     upstream-freebsd/lib/msun/src/s_finitef.c \
-    upstream-freebsd/lib/msun/src/s_fmax.c \
-    upstream-freebsd/lib/msun/src/s_fmaxf.c \
-    upstream-freebsd/lib/msun/src/s_fmin.c \
-    upstream-freebsd/lib/msun/src/s_fminf.c \
     upstream-freebsd/lib/msun/src/s_frexp.c \
     upstream-freebsd/lib/msun/src/s_frexpf.c \
     upstream-freebsd/lib/msun/src/s_ilogb.c \
     upstream-freebsd/lib/msun/src/s_ilogbf.c \
-    upstream-freebsd/lib/msun/src/s_llround.c \
-    upstream-freebsd/lib/msun/src/s_llroundf.c \
     upstream-freebsd/lib/msun/src/s_log1p.c \
     upstream-freebsd/lib/msun/src/s_log1pf.c \
     upstream-freebsd/lib/msun/src/s_logb.c \
     upstream-freebsd/lib/msun/src/s_logbf.c \
-    upstream-freebsd/lib/msun/src/s_lround.c \
-    upstream-freebsd/lib/msun/src/s_lroundf.c \
     upstream-freebsd/lib/msun/src/s_modf.c \
     upstream-freebsd/lib/msun/src/s_modff.c \
     upstream-freebsd/lib/msun/src/s_nan.c \
@@ -146,8 +134,6 @@ libm_common_src_files += \
     upstream-freebsd/lib/msun/src/s_nextafterf.c \
     upstream-freebsd/lib/msun/src/s_remquo.c \
     upstream-freebsd/lib/msun/src/s_remquof.c \
-    upstream-freebsd/lib/msun/src/s_round.c \
-    upstream-freebsd/lib/msun/src/s_roundf.c \
     upstream-freebsd/lib/msun/src/s_scalbln.c \
     upstream-freebsd/lib/msun/src/s_scalbn.c \
     upstream-freebsd/lib/msun/src/s_scalbnf.c \
@@ -239,10 +225,41 @@ libm_arm_arch_files += \
     upstream-freebsd/lib/msun/src/s_floorf.c \
     upstream-freebsd/lib/msun/src/s_llrint.c \
     upstream-freebsd/lib/msun/src/s_llrintf.c \
+
+LOCAL_SRC_FILES_arm += \
+    arm/fenv.c \
+    upstream-freebsd/lib/msun/src/e_acos.c \
+    upstream-freebsd/lib/msun/src/e_asin.c \
+    upstream-freebsd/lib/msun/src/e_atan2.c \
+    upstream-freebsd/lib/msun/src/e_cosh.c \
+    upstream-freebsd/lib/msun/src/e_hypot.c \
+    upstream-freebsd/lib/msun/src/e_log10.c \
+    upstream-freebsd/lib/msun/src/e_pow.c \
+    upstream-freebsd/lib/msun/src/e_sinh.c \
+    upstream-freebsd/lib/msun/src/s_cbrt.c \
+    upstream-freebsd/lib/msun/src/s_ceil.c \
+    upstream-freebsd/lib/msun/src/s_ceilf.c \
+    upstream-freebsd/lib/msun/src/s_expm1.c \
+    upstream-freebsd/lib/msun/src/s_floorf.c \
+    upstream-freebsd/lib/msun/src/s_fmax.c \
+    upstream-freebsd/lib/msun/src/s_fmaxf.c \
+    upstream-freebsd/lib/msun/src/s_fmin.c \
+    upstream-freebsd/lib/msun/src/s_fminf.c \
+    upstream-freebsd/lib/msun/src/s_llrint.c \
+    upstream-freebsd/lib/msun/src/s_llrintf.c \
+    upstream-freebsd/lib/msun/src/s_llround.c \
+    upstream-freebsd/lib/msun/src/s_llroundf.c \
+    upstream-freebsd/lib/msun/src/s_log1p.c \
     upstream-freebsd/lib/msun/src/s_lrint.c \
     upstream-freebsd/lib/msun/src/s_lrintf.c \
+    upstream-freebsd/lib/msun/src/s_lround.c \
+    upstream-freebsd/lib/msun/src/s_lroundf.c \
     upstream-freebsd/lib/msun/src/s_rint.c \
     upstream-freebsd/lib/msun/src/s_rintf.c \
+    upstream-freebsd/lib/msun/src/s_round.c \
+    upstream-freebsd/lib/msun/src/s_roundf.c \
+    upstream-freebsd/lib/msun/src/s_tan.c \
+    upstream-freebsd/lib/msun/src/s_tanh.c \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
 
@@ -258,9 +275,23 @@ ifeq ($(arch_variant),armv7-a)
 libm_arm_arch_files += \
     upstream-freebsd/lib/msun/src/s_cos.c \
     upstream-freebsd/lib/msun/src/s_sin.c \
+
+LOCAL_SRC_FILES_arm += \
+    upstream-freebsd/lib/msun/src/e_exp.c \
+    upstream-freebsd/lib/msun/src/e_log.c \
+    upstream-freebsd/lib/msun/src/e_pow.c \
+    upstream-freebsd/lib/msun/src/e_rem_pio2.c \
     upstream-freebsd/lib/msun/src/e_sqrt.c \
     upstream-freebsd/lib/msun/src/e_sqrtf.c \
+    upstream-freebsd/lib/msun/src/k_rem_pio2.c \
+    upstream-freebsd/lib/msun/src/s_atan.c \
+    upstream-freebsd/lib/msun/src/s_cos.c \
     upstream-freebsd/lib/msun/src/s_floor.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_fma.c \
+    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_sin.c \
 
 else
 libm_arm_arch_files += \
@@ -271,7 +302,25 @@ libm_arm_arch_files += \
     arm/s_floor.S \
 
 libm_arm_arch_cflags += -DQCOM_NEON_OPTIMIZATION -fno-if-conversion
+LOCAL_SRC_FILES_arm += \
+    arm/atan.S \
+    arm/cos.S \
+    arm/cos_kernel.S \
+    arm/exp.S \
+    arm/fabs.S \
+    arm/floor.S \
+    arm/fma.S \
+    arm/log.S \
+    arm/rem_pio2_fast.S \
+    arm/rem_pio2.S \
+    arm/rem_pio2_kernel.S \
+    arm/rem_pio2_large.c \
+    arm/sin.S \
+    arm/sin_kernel.S \
+    arm/sqrt.S \
 endif
+
+LOCAL_CFLAGS_arm += -fno-if-conversion
 
 # -----------------------------------------------------------------------------
 # arm64
@@ -281,13 +330,44 @@ libm_arm64_arch_files += \
     upstream-freebsd/lib/msun/src/s_sin.c \
     arm64/ceil.S \
     arm64/fma.S \
+LOCAL_SRC_FILES_arm64 += \
+    arm64/atan.S \
+    arm64/ceil.S \
+    arm64/exp.S \
+    arm64/fabs.S \
+    arm64/fenv.c \
     arm64/floor.S \
+    arm64/fma.S \
+    arm64/fmax.S \
+    arm64/fmin.S \
+    arm64/log.S \
     arm64/lrint.S \
+    arm64/lround.S \
+    arm64/rem_pio2.S \
+    arm64/rem_pio2_kernel.S \
     arm64/rint.S \
+    arm64/round.S \
     arm64/sqrt.S \
     arm64/trunc.S \
 
 libm_arm64_arch_cflags += -DQCOM_NEON_OPTIMIZATION
+
+LOCAL_SRC_FILES_arm += \
+    upstream-freebsd/lib/msun/src/e_acos.c \
+    upstream-freebsd/lib/msun/src/e_asin.c \
+    upstream-freebsd/lib/msun/src/e_atan2.c \
+    upstream-freebsd/lib/msun/src/e_cosh.c \
+    upstream-freebsd/lib/msun/src/e_hypot.c \
+    upstream-freebsd/lib/msun/src/e_log10.c \
+    upstream-freebsd/lib/msun/src/e_sinh.c \
+    upstream-freebsd/lib/msun/src/s_cbrt.c \
+    upstream-freebsd/lib/msun/src/s_cos.c \
+    upstream-freebsd/lib/msun/src/s_expm1.c \
+    upstream-freebsd/lib/msun/src/s_log1p.c \
+    upstream-freebsd/lib/msun/src/e_pow.c \
+    upstream-freebsd/lib/msun/src/e_sin.c \
+    upstream-freebsd/lib/msun/src/s_tan.c \
+    upstream-freebsd/lib/msun/src/s_tanh.c \
 
 # -----------------------------------------------------------------------------
 # mips
@@ -299,19 +379,36 @@ libm_mips_arch_files += \
     upstream-freebsd/lib/msun/src/s_ceil.c \
     upstream-freebsd/lib/msun/src/s_ceilf.c \
     upstream-freebsd/lib/msun/src/s_cos.c \
-    upstream-freebsd/lib/msun/src/s_fma.c \
-    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_floor.c \
     upstream-freebsd/lib/msun/src/s_floorf.c \
+    upstream-freebsd/lib/msun/src/s_fma.c \
+    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_fmax.c \
+    upstream-freebsd/lib/msun/src/s_fmaxf.c \
+    upstream-freebsd/lib/msun/src/s_fmin.c \
+    upstream-freebsd/lib/msun/src/s_fminf.c \
+    upstream-freebsd/lib/msun/src/s_expm1.c \
     upstream-freebsd/lib/msun/src/s_llrint.c \
     upstream-freebsd/lib/msun/src/s_llrintf.c \
+    upstream-freebsd/lib/msun/src/s_llround.c \
+    upstream-freebsd/lib/msun/src/s_llroundf.c \
+    upstream-freebsd/lib/msun/src/s_log1p.c \
     upstream-freebsd/lib/msun/src/s_lrint.c \
     upstream-freebsd/lib/msun/src/s_lrintf.c \
+    upstream-freebsd/lib/msun/src/s_lround.c \
+    upstream-freebsd/lib/msun/src/s_lroundf.c \
     upstream-freebsd/lib/msun/src/s_rint.c \
     upstream-freebsd/lib/msun/src/s_rintf.c \
+    upstream-freebsd/lib/msun/src/s_round.c \
+    upstream-freebsd/lib/msun/src/s_roundf.c \
     upstream-freebsd/lib/msun/src/s_sin.c \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/e_rem_pio2.c \
+    upstream-freebsd/lib/msun/src/k_rem_pio2.c \
 
 
 # -----------------------------------------------------------------------------
@@ -327,16 +424,74 @@ libm_x86_arch_files += \
     upstream-freebsd/lib/msun/src/s_fmaf.c \
     upstream-freebsd/lib/msun/src/s_floor.c \
     upstream-freebsd/lib/msun/src/s_floorf.c \
+LOCAL_SRC_FILES_x86 += \
+    i387/fenv.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_fma.c \
+    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_fmax.c \
+    upstream-freebsd/lib/msun/src/s_fmaxf.c \
+    upstream-freebsd/lib/msun/src/s_fmin.c \
+    upstream-freebsd/lib/msun/src/s_fminf.c \
     upstream-freebsd/lib/msun/src/s_llrint.c \
     upstream-freebsd/lib/msun/src/s_llrintf.c \
+    upstream-freebsd/lib/msun/src/s_llround.c \
+    upstream-freebsd/lib/msun/src/s_llroundf.c \
     upstream-freebsd/lib/msun/src/s_lrint.c \
     upstream-freebsd/lib/msun/src/s_lrintf.c \
+    upstream-freebsd/lib/msun/src/s_lround.c \
+    upstream-freebsd/lib/msun/src/s_lroundf.c \
     upstream-freebsd/lib/msun/src/s_rint.c \
     upstream-freebsd/lib/msun/src/s_rintf.c \
     upstream-freebsd/lib/msun/src/s_sin.c \
+    upstream-freebsd/lib/msun/src/s_round.c \
+    upstream-freebsd/lib/msun/src/s_roundf.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/e_rem_pio2.c \
+    upstream-freebsd/lib/msun/src/k_rem_pio2.c \
+    x86/sqrt.S \
+    x86/sqrtf.S \
+    x86/e_acos.S \
+    x86/e_asin.S \
+    x86/e_atan2.S \
+    x86/e_cosh.S \
+    x86/e_exp.S \
+    x86/e_hypot.S \
+    x86/e_log10.S \
+    x86/e_log.S \
+    x86/e_pow.S \
+    x86/e_sinh.S \
+    x86/libm_reduce_pi04l.S \
+    x86/libm_sincos_huge.S \
+    x86/libm_tancot_huge.S \
+    x86/s_atan.S \
+    x86/s_cbrt.S \
+    x86/s_cos.S \
+    x86/s_expm1.S \
+    x86/s_log1p.S \
+    x86/s_sin.S \
+    x86/s_tanh.S \
+    x86/s_tan.S \
+
+ifeq ($(ARCH_X86_HAVE_SSE4_1),true)
+LOCAL_SRC_FILES_x86 += \
+    x86/ceil.S \
+    x86/ceilf.S \
+    x86/floor.S \
+    x86/floorf.S \
+    x86/trunc.S \
+    x86/truncf.S \
+
+else
+LOCAL_SRC_FILES_x86 += \
+    upstream-freebsd/lib/msun/src/s_ceil.c \
+    upstream-freebsd/lib/msun/src/s_ceilf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c \
+    upstream-freebsd/lib/msun/src/s_floorf.c \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
-
+endif
 # -----------------------------------------------------------------------------
 # x86_64
 # -----------------------------------------------------------------------------
@@ -350,16 +505,71 @@ libm_x86_64_arch_files += \
     upstream-freebsd/lib/msun/src/s_fmaf.c \
     upstream-freebsd/lib/msun/src/s_floor.c \
     upstream-freebsd/lib/msun/src/s_floorf.c \
+LOCAL_SRC_FILES_x86_64 += \
+    amd64/fenv.c \
+    upstream-freebsd/lib/msun/src/s_fabs.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/s_fma.c \
+    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_fmax.c \
+    upstream-freebsd/lib/msun/src/s_fmaxf.c \
+    upstream-freebsd/lib/msun/src/s_fmin.c \
+    upstream-freebsd/lib/msun/src/s_fminf.c \
     upstream-freebsd/lib/msun/src/s_llrint.c \
     upstream-freebsd/lib/msun/src/s_llrintf.c \
+    upstream-freebsd/lib/msun/src/s_llround.c \
+    upstream-freebsd/lib/msun/src/s_llroundf.c \
     upstream-freebsd/lib/msun/src/s_lrint.c \
     upstream-freebsd/lib/msun/src/s_lrintf.c \
+    upstream-freebsd/lib/msun/src/s_lround.c \
+    upstream-freebsd/lib/msun/src/s_lroundf.c \
     upstream-freebsd/lib/msun/src/s_rint.c \
     upstream-freebsd/lib/msun/src/s_rintf.c \
     upstream-freebsd/lib/msun/src/s_sin.c \
+    upstream-freebsd/lib/msun/src/s_round.c \
+    upstream-freebsd/lib/msun/src/s_roundf.c \
+    upstream-freebsd/lib/msun/src/s_fabsf.c \
+    upstream-freebsd/lib/msun/src/e_rem_pio2.c \
+    upstream-freebsd/lib/msun/src/k_rem_pio2.c \
+    x86_64/sqrt.S \
+    x86_64/sqrtf.S \
+    x86_64/e_acos.S \
+    x86_64/e_asin.S \
+    x86_64/e_atan2.S \
+    x86_64/e_cosh.S \
+    x86_64/e_exp.S \
+    x86_64/e_hypot.S \
+    x86_64/e_log10.S \
+    x86_64/e_log.S \
+    x86_64/e_pow.S \
+    x86_64/e_sinh.S \
+    x86_64/s_atan.S \
+    x86_64/s_cbrt.S \
+    x86_64/s_cos.S \
+    x86_64/s_expm1.S \
+    x86_64/s_log1p.S \
+    x86_64/s_sin.S \
+    x86_64/s_tanh.S \
+    x86_64/s_tan.S \
+
+ifeq ($(ARCH_X86_HAVE_SSE4_1),true)
+LOCAL_SRC_FILES_x86_64 += \
+    x86_64/ceil.S \
+    x86_64/ceilf.S \
+    x86_64/floor.S \
+    x86_64/floorf.S \
+    x86_64/trunc.S \
+    x86_64/truncf.S \
+
+else
+LOCAL_SRC_FILES_x86_64 += \
+    upstream-freebsd/lib/msun/src/s_ceil.c \
+    upstream-freebsd/lib/msun/src/s_ceilf.c \
+    upstream-freebsd/lib/msun/src/s_floor.c \
+    upstream-freebsd/lib/msun/src/s_floorf.c \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
-
+endif
 # TODO: re-enable i387/e_sqrtf.S for x86, and maybe others.
 
 libm_common_cflags := \

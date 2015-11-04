@@ -16,16 +16,12 @@
 
 #include <private/bionic_asm.h>
 
-ENTRY(fabsf)
-   vmov    s15, r0
-   vabs.f32        s0, s15
-   vmov    r0, s0
-   bx      lr
-END(fabsf)
+ENTRY(round)
+  frintA d0, d0
+  ret
+END(round)
 
-ENTRY(fabs)
-   vmov    d16, r0, r1
-   vabs.f64        d0, d16
-   vmov    r0, r1, d0
-   bx      lr
-END(fabs)
+ENTRY(roundf)
+  frintA s0, s0
+  ret
+END(roundf)
