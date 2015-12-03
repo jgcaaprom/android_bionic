@@ -233,8 +233,6 @@ LOCAL_SRC_FILES_arm += \
     upstream-freebsd/lib/msun/src/s_cbrt.c \
     upstream-freebsd/lib/msun/src/s_ceil.c \
     upstream-freebsd/lib/msun/src/s_expm1.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_fma.c \
     upstream-freebsd/lib/msun/src/s_fmaf.c \
     upstream-freebsd/lib/msun/src/s_fmax.c \
@@ -259,17 +257,14 @@ LOCAL_SRC_FILES_arm += \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
 
-LOCAL_SRC_FILES_arm += \
-    upstream-freebsd/lib/msun/src/e_sqrt.c \
-    upstream-freebsd/lib/msun/src/e_sqrtf.c \
-    upstream-freebsd/lib/msun/src/s_floor.c \
-
+# s_floor.S requires neon instructions.
+ifdef TARGET_2ND_ARCH
+arch_variant := $(TARGET_2ND_ARCH_VARIANT)
 else
-LOCAL_SRC_FILES_arm += \
-    arm/sqrt.S \
-    arm/floor.S \
-
+arch_variant := $(TARGET_ARCH_VARIANT)
 endif
+
+# Use the C version on armv7-a since it doesn't support neon instructions.
 
 LOCAL_SRC_FILES_arm += \
     arm/atan.S \
@@ -354,8 +349,6 @@ libm_mips_arch_files := \
     upstream-freebsd/lib/msun/src/s_ceil.c \
     upstream-freebsd/lib/msun/src/s_ceilf.c \
     upstream-freebsd/lib/msun/src/s_cos.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_floor.c \
     upstream-freebsd/lib/msun/src/s_floorf.c \
     upstream-freebsd/lib/msun/src/s_fma.c \
@@ -384,7 +377,6 @@ libm_mips_arch_files := \
     upstream-freebsd/lib/msun/src/s_tanh.c \
     upstream-freebsd/lib/msun/src/s_trunc.c \
     upstream-freebsd/lib/msun/src/s_truncf.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/e_rem_pio2.c \
     upstream-freebsd/lib/msun/src/k_rem_pio2.c \
 
@@ -396,8 +388,6 @@ LOCAL_SRC_FILES_mips64 += $(libm_mips_arch_files)
 # -----------------------------------------------------------------------------
 LOCAL_SRC_FILES_x86 += \
     i387/fenv.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_fma.c \
     upstream-freebsd/lib/msun/src/s_fmaf.c \
     upstream-freebsd/lib/msun/src/s_fmax.c \
@@ -417,7 +407,6 @@ LOCAL_SRC_FILES_x86 += \
     upstream-freebsd/lib/msun/src/s_rintf.c \
     upstream-freebsd/lib/msun/src/s_round.c \
     upstream-freebsd/lib/msun/src/s_roundf.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/e_rem_pio2.c \
     upstream-freebsd/lib/msun/src/k_rem_pio2.c \
     x86/sqrt.S \
@@ -469,8 +458,6 @@ endif
 # -----------------------------------------------------------------------------
 LOCAL_SRC_FILES_x86_64 += \
     amd64/fenv.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/s_fma.c \
     upstream-freebsd/lib/msun/src/s_fmaf.c \
     upstream-freebsd/lib/msun/src/s_fmax.c \
@@ -490,7 +477,6 @@ LOCAL_SRC_FILES_x86_64 += \
     upstream-freebsd/lib/msun/src/s_rintf.c \
     upstream-freebsd/lib/msun/src/s_round.c \
     upstream-freebsd/lib/msun/src/s_roundf.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/e_rem_pio2.c \
     upstream-freebsd/lib/msun/src/k_rem_pio2.c \
     x86_64/sqrt.S \
