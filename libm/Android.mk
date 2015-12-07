@@ -15,6 +15,35 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libm
 
+LOCAL_SRC_FILES += \
+    arm/k_log2.S \
+    arm/k_exp.S \
+    arm/e_fast_exp.S \
+    arm/e_sqrt.S \
+    arm/e_sqrtf.S \
+    arm/s_floor.S \
+    arm/e_rem_pio2_fast.S \
+    arm/e_rem_pio2_large.c \
+    arm/k_sin_fast.S \
+    arm/k_cos_fast.S \
+    arm/s_sin_fast.S \
+    arm/s_cos_fast.S \
+    arm/e_pow.S 
+
+LOCAL_SRC_FILES := \
+    upstream-freebsd/lib/msun/src/s_floorf.c \
+    upstream-freebsd/lib/msun/src/s_fma.c \
+    upstream-freebsd/lib/msun/src/s_fmaf.c \
+    upstream-freebsd/lib/msun/src/s_fmax.c \
+    upstream-freebsd/lib/msun/src/s_fmaxf.c \
+    upstream-freebsd/lib/msun/src/s_fmin.c \
+    upstream-freebsd/lib/msun/src/s_fminf.c \
+    upstream-freebsd/lib/msun/src/s_cos.c \
+    upstream-freebsd/lib/msun/src/s_sin.c 
+
+LOCAL_CFLAGS := -DLIBM_OPT_SIN_COS -DLIBM_OPT_EXP -DPRECISE_TRIGONOMETRIC -DKRAIT_NEON_OPTIMIZATION -fno-if-conversion
+LOCAL_ASFLAGS := -DFPU_VFPV4 -DLIBM_OPT_SIN_COS -DLIBM_OPT_EXP -DPRECISE_TRIGONOMETRIC
+
 LOCAL_SRC_FILES := \
     upstream-freebsd/lib/msun/bsdsrc/b_exp.c \
     upstream-freebsd/lib/msun/bsdsrc/b_log.c \
