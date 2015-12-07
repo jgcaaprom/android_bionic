@@ -225,8 +225,9 @@ LOCAL_SRC_FILES += \
     signbit.c \
 
 # Home-grown stuff.
-#LOCAL_SRC_FILES += \
-#    fabs.cpp \
+LOCAL_SRC_FILES += \
+    fabs.cpp \
+
 # Arch specific optimizations.
 
 # -----------------------------------------------------------------------------
@@ -234,8 +235,6 @@ LOCAL_SRC_FILES += \
 # -----------------------------------------------------------------------------
 LOCAL_SRC_FILES_arm += \
     arm/fenv.c \
-    upstream-freebsd/lib/msun/src/s_fabs.c \
-    upstream-freebsd/lib/msun/src/s_fabsf.c \
     upstream-freebsd/lib/msun/src/e_acos.c \
     upstream-freebsd/lib/msun/src/e_asin.c \
     upstream-freebsd/lib/msun/src/e_atan2.c \
