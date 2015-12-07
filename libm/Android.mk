@@ -13,7 +13,10 @@ endif
 # -----------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libm
+LOCAL_MODULE := libm 
+
+LOCAL_CFLAGS := -DLIBM_OPT_SIN_COS -DLIBM_OPT_EXP -DPRECISE_TRIGONOMETRIC -DKRAIT_NEON_OPTIMIZATION -fno-if-conversion 
+LOCAL_ASFLAGS := -DLIBM_OPT_SIN_COS -DLIBM_OPT_EXP -DPRECISE_TRIGONOMETRIC -DKRAIT_NEON_OPTIMIZATION -fno-if-conversion
 
 LOCAL_SRC_FILES := \
     upstream-freebsd/lib/msun/bsdsrc/b_exp.c \
