@@ -17,7 +17,7 @@
 
 #ifndef _MATH_PRIVATE_H_
 #define	_MATH_PRIVATE_H_
-
+#endif
 #include <sys/types.h>
 #include <machine/endian.h>
 
@@ -689,17 +689,13 @@ irintl(long double x)
 #define	__ieee754_atanh	atanh
 #define	__ieee754_asin	asin
 #define	__ieee754_atan2	atan2
-#if !defined(LIBM_OPT_EXP)
 #define	__ieee754_exp	exp
-#endif
 #define	__ieee754_cosh	cosh
 #define	__ieee754_fmod	fmod
 #ifndef NEON_OPTIMIZATION
 #define	__ieee754_pow	pow
-#if !defined(LIBM_OPT_SIN_COS)
 #define        __ieee754_sin   sin
 #define        __ieee754_cos   cos
-#endif
 #define	__ieee754_lgamma lgamma
 #define	__ieee754_gamma	gamma
 #define	__ieee754_lgamma_r lgamma_r

@@ -5,9 +5,7 @@
 #
 
 libc_bionic_src_files_arm += \
-    bionic/strncat.c \
-    bionic/memrchr.c \
-    bionic/strchr.cpp \
+#    bionic/strncat.c \
     bionic/strnlen.c \
 
 libc_darwin_src_files_arm += \
