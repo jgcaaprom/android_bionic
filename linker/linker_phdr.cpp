@@ -38,6 +38,8 @@
 #include "linker.h"
 #include "linker_debug.h"
 
+#include "private/bionic_prctl.h"
+
 static int GetTargetElfMachine() {
 #if defined(__arm__)
   return EM_ARM;
@@ -417,8 +419,9 @@ bool ElfReader::LoadSegments() {
     // between them. This is done by using a private anonymous
     // map for all extra pages.
     if (seg_page_end > seg_file_end) {
+      size_t zeromap_size = seg_page_end - seg_file_end;
       void* zeromap = mmap(reinterpret_cast<void*>(seg_file_end),
-                           seg_page_end - seg_file_end,
+                           zeromap_size,
                            PFLAGS_TO_PROT(phdr->p_flags),
                            MAP_FIXED|MAP_ANONYMOUS|MAP_PRIVATE,
                            -1,
@@ -427,6 +430,8 @@ bool ElfReader::LoadSegments() {
         DL_ERR("couldn't zero fill \"%s\" gap: %s", name_, strerror(errno));
         return false;
       }
+
+      prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, zeromap, zeromap_size, ".bss");
     }
   }
   return true;
