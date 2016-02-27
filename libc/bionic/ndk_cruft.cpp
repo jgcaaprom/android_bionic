@@ -244,7 +244,7 @@ extern "C" sighandler_t bsd_signal(int signum, sighandler_t handler) {
 // This was removed from POSIX 2008.
 #undef bcopy
 extern "C" void bcopy(const void* src, void* dst, size_t n) {
-  memcpy(dst, src, n);
+  memmove(dst, src, n);
 }
 #else
 // x86 has an assembler implementation.
