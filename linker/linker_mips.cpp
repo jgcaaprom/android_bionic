@@ -26,10 +26,6 @@
  * SUCH DAMAGE.
  */
 
-#if !defined(__LP64__) && __mips_isa_rev >= 5
-#include <sys/prctl.h>
-#endif
-
 #include "linker.h"
 #include "linker_debug.h"
 #include "linker_relocs.h"
